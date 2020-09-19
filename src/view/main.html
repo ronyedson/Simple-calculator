@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="/style/main.css">
+   
+</head>
+<body>
+    <div class="calculator">
+        <div class="visor">
+            <span class="givenNumbers"></span>
+            <span class="currenctNumbers">0</span>
+        </div>
+        <div class="keys">
+            {% for key in keys %}
+                {%if numbers.includes(key) %}
+                    <button class="numbers" value="{{key}}">{{key}}</button>
+                {%elif key == 0%}
+                    <button class="numbers" id="zero" value="{{key}}">{{key}}</button>
+                {%elif key == "="%}
+                    <button class="operations" id="equals" value="{{key}}">{{key}}</button>
+                {%else%}
+                    <button class="operations" value="{{key}}">{{key}}</button>
+                {%endif%}
+                
+            {% endfor %}
+        </div>
+    </div>
+    <script src="/scripts/getnumbers.js"></script>
+</body>
+</html>
